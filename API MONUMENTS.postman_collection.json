@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "409803ba-bb5c-4078-b06f-52c66db10755",
+		"name": "API MONUMENTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38617653"
+	},
+	"item": [
+		{
+			"name": "ALL MONUMENTS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/monument/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"monument",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QUERY",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/monument?maxLatitude=40.0&sort=yes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"monument"
+					],
+					"query": [
+						{
+							"key": "maxLatitude",
+							"value": "40.0"
+						},
+						{
+							"key": "sort",
+							"value": "yes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MONUMENT BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/monument/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"monument",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT MONUMENT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 1,\n        \"countryCode\": \"ESPAÑA\",\n        \"countryName\": \"Spain\",\n        \"cityName\": \"Sevilla\",\n        \"monumentName\": \"Giralda\",\n        \"monumentDescription\": \"The Giralda is the bell tower of the Seville Cathedral in Seville, Spain. It was originally built as the minaret for the Great Mosque of Seville in Al-Andalus, Moorish Spain, during the reign of the Almohad dynasty, with a Renaissance-style top subsequently added by the Catholics after the expulsion of the Muslims from the area.\",\n        \"photoUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giralda%2C_Sevilla%2C_2015-12-09%2C_JD_01.jpg/800px-Giralda%2C_Sevilla%2C_2015-12-09%2C_JD_01.jpg\",\n        \"lenght\": 10.0,\n        \"latitude\": 37.38283\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/monument/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"monument",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD MONUMENT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 8,\n    \"countryCode\": \"CL\",\n    \"countryName\": \"Chile\",\n    \"cityName\": \"Santiago de Chile\",\n    \"monumentName\": \"La Moneda Palace\",\n    \"monumentDescription\": \"La Moneda Palace is the seat of the President of the Republic of Chile. It also houses the offices of three cabinet ministers: the Interior, General Secretariat of the Presidency, and General Secretariat of the Government. It is located in the capital, Santiago.\",\n    \"photoUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Palacio_de_La_Moneda.jpg/800px-Palacio_de_La_Moneda.jpg\",\n    \"lenght\": 120.0,\n    \"latitude\": -33.4445\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/monument",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"monument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE MONUMENT",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/monument/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"monument",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
