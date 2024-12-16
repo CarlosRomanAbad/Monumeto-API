@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
+import com.salesianos_triana.edu.monument_api.errors.MonumentNotFound;
 import com.salesianos_triana.edu.monument_api.models.MonumentEntity;
 
 import jakarta.annotation.PostConstruct;
@@ -74,23 +75,39 @@ public class MonumentoRepository {
     }
 
     public List<MonumentEntity> getAllMonuments(){
+
+        if(monumentos.isEmpty())
+            throw new MonumentNotFound();
         return monumentos.values().stream().toList();
     }
 
     public MonumentEntity addMonument(MonumentEntity monument){
+
+        if(monument == null){
+            throw new MonumentNotFound("No se ha podido añadir el monumento");
+        }
+
         monumentos.put(monument.getId(), monument);
         return monument;
     }
 
     public Optional<MonumentEntity> getMonumentById(Long id){
+        if(!monumentos.containsKey(id))
+            throw new MonumentNotFound(id);
         return Optional.ofNullable(monumentos.get(id));
     }
 
     public void deleteMonumentById(Long id){
+        if(!monumentos.containsKey(id))
+            throw new MonumentNotFound(id);
         monumentos.remove(id);
     }
 
     public Optional<MonumentEntity> editMonument(Long id, MonumentEntity monument){
+
+        if(!monumentos.containsKey(id))
+            throw new MonumentNotFound(id);
+
       return Optional.ofNullable(monumentos.computeIfPresent(id, (k,v) -> {
         v.setCityName(monument.getCityName());
         v.setCountryCode(monument.getCountryCode());

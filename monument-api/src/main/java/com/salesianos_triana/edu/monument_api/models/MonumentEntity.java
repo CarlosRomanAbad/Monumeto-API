@@ -23,6 +23,6 @@ public class MonumentEntity {
 
     private String countryCode , countryName , cityName ,   monumentName , monumentDescription , photoUrl;
 
-    private double lenght , latitude;
+    private Double lenght , latitude;
 
 }
